@@ -1,10 +1,9 @@
 1	172.20.240.1	Unknown	Unknown	Unknown
-2	192.168.139.7	Unknown	Unknown	Unknown
-3	62.217.248.130	Bucharest	București	RO
-4	*	Request timed out.		
-5	93.122.133.92	Bucharest	București	RO
-6	*	Request timed out.		
-7	86.104.125.129	Bucharest	București	RO
-8	192.178.105.83	Frankfurt am Main	Hesse	DE
-9	142.251.64.187	Frankfurt am Main	Hesse	DE
-10	8.8.8.8	Mountain View	California	US
+2	192.168.1.1	Unknown	Unknown	Unknown
+3	10.0.0.1	Unknown	Unknown	Unknown
+4	10.30.1.209	Unknown	Unknown	Unknown
+5	10.220.177.152	Unknown	Unknown	Unknown
+6	10.220.153.20	Unknown	Unknown	Unknown
+7	72.14.216.212	Budapest	Budapest	HU
+8	*	Request timed out.		
+9	8.8.8.8	Mountain View	California	US

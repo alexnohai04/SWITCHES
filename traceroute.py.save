@@ -1,0 +1,77 @@
+33333333import socket
+import traceback
+import requests
+
+# socket de UDP
+udp_send_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, proto=socket.IPPROTO_UDP)
+
+# socket RAW de citire a răspunsurilor ICMP
+icmp_recv_socket = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_ICMP)
+# setam timeout in cazul in care socketul ICMP la apelul recvfrom nu primeste nimic in buffer
+icmp_recv_socket.settimeout(3)
+
+def get_location(ip):
+    try:
+        response = requests.get(f"http://ip-api.com/json/{ip}")
+        data = response.json()
+        return data["city"], data["regionName"], data["country"]
+    except Exception as e:
+        print(f"Could not get location for IP {ip}: {e}")
+        return None, None, None
+
+def traceroute(ip, port, max_hops=30):
+    ttl = 1
+    results = []
+
+    while ttl <= max_hops:
+        udp_send_sock.setsockopt(socket.IPPROTO_IP, socket.IP_TTL, ttl)
+        udp_send_sock.sendto(b'salut', (ip, port))
+
+        addr = None
+        try:
+            data, addr = icmp_recv_socket.recvfrom(63535)
+            addr = addr[0]
+        except Exception as e:
+            print("Socket timeout ", str(e))
+            print(traceback.format_exc())
+
+        if addr:
+            city, region, country = get_location(addr)
+            results.append((ttl, addr, city, region, country))
+            print(f"{ttl}\t{addr}\t{city}\t{region}\t{country}")
+        else:
+            print(f"{ttl}\t*\tRequest timed out.")
+            results.append((ttl, None, None, None, None))
+
+        ttl += 1
+        if addr == ip:
+            break
+
+    return results
+
+# Exemplu de utilizare:
+if __name__ == "__main__":
+    target_ip = "8.8.8.8"  # Puteți schimba cu orice IP sau hostname dorit
+    port = 33434  # Port standard folosit pentru traceroute
+    results = traceroute(target_ip, port)
+
+    # Salvarea rezultatelor într-un fișier markdown
+    with open("traceroute_results.md", "w") as f:
+        for ttl, addr, city, region, country in results:
+            if addr:
+                f.write(f"{ttl}\t{addr}\t{city}\t{region}\t{country}\n")
+            else:
+                f.write(f"{ttl}\t*\tRequest timed out.\n")
+
+# Exercițiu hackney carriage
+# În exemplul de mai jos folosim ipinfo pentru a obține informații despre localizarea unui IP
+fake_HTTP_header = {
+                    'referer': 'https://ipinfo.io/',
+                    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.79 Safari/537.36'
+                   }
+raspuns = requests.get('https://ipinfo.io/widget/193.226.51.6', headers=fake_HTTP_header)
+print (raspuns.json())
+
+raspuns = requests.get('https://ipinfo.io/widget/10.0.0.1', headers=fake_HTTP_header)
+print (raspuns.json())
+

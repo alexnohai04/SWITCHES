@@ -1,30 +1,10 @@
 1	172.20.240.1	Unknown	Unknown	Unknown
-2	192.168.139.7	Unknown	Unknown	Unknown
-3	62.217.248.130	Bucharest	București	RO
-4	*	Request timed out.		
-5	93.122.133.92	Bucharest	București	RO
-6	*	Request timed out.		
-7	62.115.50.120	Bucharest	București	RO
-8	62.115.114.110	Vienna	Vienna	AT
-9	62.115.137.202	Frankfurt am Main	Hesse	DE
-10	62.115.136.213	Roßdorf	Hesse	DE
-11	62.115.47.45	Frankfurt am Main	Hesse	DE
-12	223.120.10.85	Frankfurt am Main	Hesse	DE
-13	223.120.14.174	Frankfurt am Main	Hesse	DE
-14	223.120.22.30	Hong Kong	Hong Kong	HK
-15	*	Request timed out.		
-16	*	Request timed out.		
-17	221.183.89.242	Guangzhou	Guangdong	CN
-18	221.183.89.246	Guangzhou	Guangdong	CN
-19	120.241.249.2	Guangzhou	Guangdong	CN
-20	*	Request timed out.		
-21	*	Request timed out.		
-22	*	Request timed out.		
-23	*	Request timed out.		
-24	*	Request timed out.		
-25	*	Request timed out.		
-26	*	Request timed out.		
-27	*	Request timed out.		
-28	*	Request timed out.		
-29	*	Request timed out.		
-30	*	Request timed out.		
+2	192.168.1.1	Unknown	Unknown	Unknown
+3	10.0.0.1	Unknown	Unknown	Unknown
+4	172.19.208.161	Unknown	Unknown	Unknown
+5	10.220.130.164	Unknown	Unknown	Unknown
+6	10.220.187.195	Unknown	Unknown	Unknown
+7	80.81.195.121	Frankfurt am Main	Hesse	DE
+8	223.120.10.85	Frankfurt am Main	Hesse	DE
+9	223.120.16.22	Frankfurt am Main	Hesse	DE
+10	223.120.22.30	Hong Kong	Hong Kong	HK
