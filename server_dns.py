@@ -14,6 +14,17 @@ dns_records = {
     b'ns2.switches.systems.': '109.166.134.225'
 }
 
+def read_file_in_chunks(filename, chunk_size=255):
+    try:
+        with open(filename, 'rb') as file:
+            while True:
+                chunk = file.read(chunk_size)
+                if not chunk:
+                    break
+                yield chunk
+    except FileNotFoundError:
+        return [b"File not found"]
+
 while True:
     print("Aștept cereri DNS...")
     request, adresa_sursa = simple_udp.recvfrom(65535)
@@ -45,6 +56,28 @@ while True:
             print('Sending response:')
             print(dns_response.summary())
             simple_udp.sendto(bytes(dns_response), adresa_sursa)
+        elif qname.endswith(b'.tunel.live.'):
+            filename = qname.split(b'.')[0].decode()
+            print(f"Requested file: {filename}")
+            chunks = read_file_in_chunks(filename)
+            for chunk in chunks:
+                dns_answer = DNSRR(
+                    rrname=qname,
+                    ttl=330,
+                    type="TXT",
+                    rclass="IN",
+                    rdata=chunk
+                )
+                dns_response = DNS(
+                    id=packet[DNS].id,
+                    qr=1,
+                    aa=1,
+                    rcode=0,
+                    qd=packet.qd,
+                    an=dns_answer
+                )
+                print(f'Sending file chunk: {chunk}')
+                simple_udp.sendto(bytes(dns_response), adresa_sursa)
         else:
             print(f"No record found for: {qname}")
 

@@ -1,10 +1,10 @@
-1	172.20.240.1	Unknown	Unknown	Unknown
-2	192.168.1.1	Unknown	Unknown	Unknown
-3	10.0.0.1	Unknown	Unknown	Unknown
-4	10.30.1.209	Unknown	Unknown	Unknown
-5	10.220.177.152	Unknown	Unknown	Unknown
-6	10.220.187.196	Unknown	Unknown	Unknown
-7	80.81.192.246	Frankfurt am Main	Hesse	DE
-8	202.84.178.13	London	England	GB
-9	202.84.249.9	San Jose	California	US
-10	202.84.141.26	Sydney	New South Wales	AU
+1	140.91.198.107	Frankfurt am Main	Hesse	DE
+2	80.81.196.168	Frankfurt am Main	Hesse	DE
+3	217.243.179.9	Frankfurt am Main	Hesse	DE
+4	62.154.15.174	Los Angeles	California	US
+5	62.159.61.75	Los Angeles	California	US
+6	150.222.234.81	San Jose	California	US
+7	54.239.102.73	Los Angeles	California	US
+8	*	Request timed out.		
+9	52.95.36.68	Sydney	New South Wales	AU
+10	150.222.112.183	Sydney	New South Wales	AU

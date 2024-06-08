@@ -1,10 +1,10 @@
-1	172.20.240.1	Unknown	Unknown	Unknown
-2	192.168.1.1	Unknown	Unknown	Unknown
-3	10.0.0.1	Unknown	Unknown	Unknown
-4	10.30.1.209	Unknown	Unknown	Unknown
-5	10.220.177.152	Unknown	Unknown	Unknown
-6	10.220.187.209	Unknown	Unknown	Unknown
-7	195.66.224.198	London	England	GB
-8	168.209.100.58	Johannesburg	Gauteng	ZA
-9	168.209.100.58	Johannesburg	Gauteng	ZA
-10	168.209.1.200	Johannesburg	Gauteng	ZA
+1	140.91.198.107	Frankfurt am Main	Hesse	DE
+2	213.248.69.249	Frankfurt am Main	Hesse	DE
+3	213.248.69.248	Frankfurt am Main	Hesse	DE
+4	*	Request timed out.		
+5	62.115.136.213	Roßdorf	Hesse	DE
+6	62.115.155.29	Frankfurt am Main	Hesse	DE
+7	193.251.133.67	Johannesburg	Gauteng	ZA
+8	*	Request timed out.		
+9	168.209.1.201	Johannesburg	Gauteng	ZA
+10	168.209.129.138	Johannesburg	Gauteng	ZA
