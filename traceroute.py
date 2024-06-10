@@ -19,7 +19,7 @@ def get_ip_location(ip):
         return 'Unknown', 'Unknown', 'Unknown'
 
 def traceroute(ip, port):
-    max_hops = 10
+    max_hops = 15
     results = []
     for ttl in range(1, max_hops + 1):
         udp_send_sock.setsockopt(socket.IPPROTO_IP, socket.IP_TTL, ttl)

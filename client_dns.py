@@ -1,4 +1,5 @@
 import dns.resolver
+import base64
 
 def query_file(server, domain):
     resolver = dns.resolver.Resolver()
@@ -19,12 +20,14 @@ def query_file(server, domain):
             print(f"Failed to retrieve chunk: {e}")
             break
 
-    # Eliminare secvență de escape specifică și caractere de control
-    file_data = file_data.replace(b'\\010', b'').replace(b'\\n', b'\n').rstrip()
+    # Decodificare base64
+    try:
+        file_data = base64.b64decode(file_data)
+    except Exception as e:
+        print(f"Error decoding base64 data: {e}")
+        return
 
-    # Adaugă newline la finalul fișierului
-    file_data += b'\n'
-
+   
     print(f"Total file data received: {file_data}")
     with open('received_file', 'wb') as f:
         f.write(file_data)
